@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sun, Moon, Menu, X, Zap } from "lucide-react";
+import MagneticButton from "./MagneticButton";
 
 export default function Navbar({ theme, toggleTheme }) {
   const [scrolled, setScrolled] = useState(false);
@@ -89,7 +90,7 @@ export default function Navbar({ theme, toggleTheme }) {
           >
             {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
           </button>
-          <button
+          <MagneticButton
             onClick={() => scrollTo("Contact")}
             className="hidden md:block px-5 py-2 text-sm font-semibold tracking-widest uppercase transition-all duration-300 hover:scale-105"
             style={{
@@ -103,7 +104,7 @@ export default function Navbar({ theme, toggleTheme }) {
             }}
           >
             Connect
-          </button>
+          </MagneticButton>
           <button
             className="md:hidden p-1"
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -143,7 +144,7 @@ export default function Navbar({ theme, toggleTheme }) {
                   {link}
                 </button>
               ))}
-              <button
+              <MagneticButton
                 onClick={() => scrollTo("Contact")}
                 className="px-5 py-3 text-sm font-semibold tracking-widest uppercase w-full mt-2"
                 style={{
@@ -157,7 +158,7 @@ export default function Navbar({ theme, toggleTheme }) {
                 }}
               >
                 Connect
-              </button>
+              </MagneticButton>
             </div>
           </motion.div>
         )}

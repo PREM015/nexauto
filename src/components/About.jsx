@@ -1,6 +1,9 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Shield, Target, Globe, Award } from "lucide-react";
+import TiltCard from "./TiltCard";
+import TextScramble from "./TextScramble";
+import ParallaxSection from "./ParallaxSection";
 
 function useReveal() {
   const ref = useRef(null);
@@ -65,18 +68,17 @@ export default function About() {
       />
 
       {/* Large decorative text */}
-      <div className="absolute -right-32 top-1/2 -translate-y-1/2 pointer-events-none select-none hidden xl:block">
-        <span
+      <ParallaxSection speed={0.5} className="absolute -right-32 top-1/2 -translate-y-1/2 pointer-events-none select-none hidden xl:block">
+        <TextScramble
+          text="NEXAUTO"
           style={{
             fontFamily: "'Bebas Neue', cursive",
             fontSize: "200px",
             color: "rgba(0,229,255,0.03)",
             letterSpacing: "-0.02em",
           }}
-        >
-          NEXAUTO
-        </span>
-      </div>
+        />
+      </ParallaxSection>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section label */}
@@ -189,37 +191,41 @@ export default function About() {
                   duration: 0.6,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="service-card p-5 sm:p-6"
-                style={{
-                  clipPath:
-                    "polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%)",
-                }}
+                className="h-full"
               >
-                <div
-                  className="w-10 h-10 flex items-center justify-center mb-4"
+                <TiltCard
+                  className="service-card p-5 sm:p-6 h-full"
                   style={{
-                    background: "var(--cyan-dim)",
-                    border: "1px solid var(--border)",
+                    clipPath:
+                      "polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%)",
                   }}
                 >
-                  <Icon size={18} style={{ color: "var(--cyan)" }} />
-                </div>
-                <h3
-                  className="font-semibold text-sm tracking-widest uppercase mb-2"
-                  style={{
-                    color: "var(--text-primary)",
-                    fontFamily: "'Rajdhani', sans-serif",
-                    letterSpacing: "0.1em",
-                  }}
-                >
-                  {label}
-                </h3>
-                <p
-                  className="text-sm leading-6"
-                  style={{ color: "var(--text-muted)" }}
-                >
-                  {desc}
-                </p>
+                  <div
+                    className="w-10 h-10 flex items-center justify-center mb-4"
+                    style={{
+                      background: "var(--cyan-dim)",
+                      border: "1px solid var(--border)",
+                    }}
+                  >
+                    <Icon size={18} style={{ color: "var(--cyan)" }} />
+                  </div>
+                  <h3
+                    className="font-semibold text-sm tracking-widest uppercase mb-2"
+                    style={{
+                      color: "var(--text-primary)",
+                      fontFamily: "'Rajdhani', sans-serif",
+                      letterSpacing: "0.1em",
+                    }}
+                  >
+                    {label}
+                  </h3>
+                  <p
+                    className="text-sm leading-6"
+                    style={{ color: "var(--text-muted)" }}
+                  >
+                    {desc}
+                  </p>
+                </TiltCard>
               </motion.div>
             ))}
           </div>

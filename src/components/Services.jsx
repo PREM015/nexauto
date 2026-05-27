@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Cpu, Code2, Layers, Brain, Zap, Network } from "lucide-react";
-
+import SpotlightCard from "./SpotlightCard";
 const services = [
   {
     id: "sdv",
@@ -133,54 +133,55 @@ export default function Services() {
               const Icon = svc.icon;
               const isActive = active === svc.id;
               return (
-                <button
-                  key={svc.id}
-                  onClick={() => setActive(svc.id)}
-                  className="flex items-center gap-3 sm:gap-4 px-4 sm:px-5 py-3 sm:py-4 text-left transition-all duration-300 border"
-                  style={{
-                    borderColor: isActive ? svc.color : "var(--border)",
-                    background: isActive ? `${svc.color}10` : "var(--bg-card)",
-                    clipPath:
-                      "polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%)",
-                    cursor: "pointer",
-                  }}
-                >
-                  <span
-                    className="text-xs font-medium"
+
+                  <button
+                    onClick={() => setActive(svc.id)}
+                    className="flex items-center gap-3 sm:gap-4 px-4 sm:px-5 py-3 sm:py-4 text-left transition-all duration-300 border w-full"
                     style={{
-                      color: isActive ? svc.color : "var(--text-muted)",
-                      fontFamily: "'JetBrains Mono', monospace",
-                      minWidth: 24,
+                      borderColor: isActive ? svc.color : "var(--border)",
+                      background: isActive ? `${svc.color}10` : "var(--bg-card)",
+                      clipPath:
+                        "polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%)",
+                      cursor: "pointer",
                     }}
                   >
-                    {svc.number}
-                  </span>
-                  <Icon
-                    size={16}
-                    style={{
-                      color: isActive ? svc.color : "var(--text-muted)",
-                      flexShrink: 0,
-                    }}
-                  />
-                  <span
-                    className="font-semibold text-xs sm:text-sm tracking-wide"
-                    style={{
-                      color: isActive
-                        ? "var(--text-primary)"
-                        : "var(--text-muted)",
-                      fontFamily: "'Rajdhani', sans-serif",
-                      letterSpacing: "0.06em",
-                    }}
-                  >
-                    {svc.short}
-                  </span>
-                  {isActive && (
-                    <div
-                      className="ml-auto w-1.5 h-1.5 rounded-full flex-shrink-0"
-                      style={{ background: svc.color }}
+                    <span
+                      className="text-xs font-medium"
+                      style={{
+                        color: isActive ? svc.color : "var(--text-muted)",
+                        fontFamily: "'JetBrains Mono', monospace",
+                        minWidth: 24,
+                      }}
+                    >
+                      {svc.number}
+                    </span>
+                    <Icon
+                      size={16}
+                      style={{
+                        color: isActive ? svc.color : "var(--text-muted)",
+                        flexShrink: 0,
+                      }}
                     />
-                  )}
-                </button>
+                    <span
+                      className="font-semibold text-[10px] sm:text-xs lg:text-sm tracking-wide truncate"
+                      style={{
+                        color: isActive
+                          ? "var(--text-primary)"
+                          : "var(--text-muted)",
+                        fontFamily: "'Rajdhani', sans-serif",
+                        letterSpacing: "0.06em",
+                      }}
+                    >
+                      {svc.short}
+                    </span>
+                    {isActive && (
+                      <div
+                        className="ml-auto w-1.5 h-1.5 rounded-full flex-shrink-0"
+                        style={{ background: svc.color }}
+                      />
+                    )}
+                  </button>
+
               );
             })}
           </div>
@@ -193,14 +194,18 @@ export default function Services() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="relative p-6 sm:p-8 border"
-              style={{
-                borderColor: activeService.color + "30",
-                background: "var(--bg-card)",
-                clipPath:
-                  "polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%)",
-              }}
             >
+
+                <SpotlightCard
+                  color={activeService.color + "20"}
+                  className="relative p-6 sm:p-8 border"
+                  style={{
+                    borderColor: activeService.color + "30",
+                    background: "var(--bg-card)",
+                    clipPath:
+                      "polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%)",
+                  }}
+                >
               {/* Top accent line */}
               <div
                 className="absolute top-0 left-0 right-0 h-0.5"
@@ -278,7 +283,7 @@ export default function Services() {
                 {activeService.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 text-[10px] sm:text-xs tracking-widest uppercase border"
+                    className="tag-pill px-3 py-1 text-[10px] sm:text-xs tracking-widest uppercase border"
                     style={{
                       color: activeService.color,
                       borderColor: activeService.color + "40",
@@ -304,6 +309,7 @@ export default function Services() {
               >
                 {activeService.number}
               </div>
+              </SpotlightCard>
             </motion.div>
           </AnimatePresence>
         </div>

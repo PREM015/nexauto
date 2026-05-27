@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
+import MagneticButton from "./MagneticButton";
 
 const GithubIcon = ({ size }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -307,7 +308,7 @@ export default function Contact() {
                   placeholder="Tell us about your project..."
                   multiline
                 />
-                <button
+                <MagneticButton
                   onClick={handleSubmit}
                   disabled={loading}
                   className="flex items-center justify-center gap-3 py-4 font-semibold text-sm tracking-widest uppercase transition-all duration-300 hover:scale-[1.02] disabled:opacity-60"
@@ -330,7 +331,7 @@ export default function Contact() {
                       Send Message <Send size={14} />
                     </>
                   )}
-                </button>
+                </MagneticButton>
               </div>
             )}
           </div>

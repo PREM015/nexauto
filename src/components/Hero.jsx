@@ -1,26 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
-
-function HexGrid() {
-  return (
-    <svg className="absolute inset-0 w-full h-full opacity-10" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <pattern id="hex" x="0" y="0" width="60" height="52" patternUnits="userSpaceOnUse">
-          <polygon
-            points="30,2 58,17 58,47 30,62 2,47 2,17"
-            fill="none"
-            stroke="var(--cyan)"
-            strokeWidth="0.5"
-          />
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#hex)" />
-    </svg>
-  );
-}
-
-function RotatingRing({ size, duration, delay = 0, reverse = false }) {
+import ParticleField from "./ParticleField";
+import TextScramble from "./TextScramble";
+import MagneticButton from "./MagneticButton";function RotatingRing({ size, duration, delay = 0, reverse = false }) {
   return (
     <div
       className="absolute rounded-full border"
@@ -71,8 +54,8 @@ export default function Hero() {
       className="relative min-h-screen flex items-center overflow-hidden grid-bg"
       style={{ background: "var(--bg-primary)" }}
     >
-      {/* Hex grid */}
-      <HexGrid />
+      {/* Background effects */}
+      <ParticleField />
 
       {/* Radial gradient center glow */}
       <div
@@ -178,9 +161,10 @@ export default function Hero() {
               fontWeight: 300,
             }}
           >
-            Engineering the next generation of intelligent vehicles — where
-            embedded silicon meets autonomous intelligence, and mobility
-            transcends imagination.
+            <TextScramble
+              text="Engineering the next generation of intelligent vehicles — where embedded silicon meets autonomous intelligence, and mobility transcends imagination."
+              className="block"
+            />
           </motion.p>
 
           {/* CTAs */}
@@ -190,13 +174,13 @@ export default function Hero() {
             transition={{ delay: 0.9, duration: 0.7 }}
             className="flex flex-col sm:flex-row flex-wrap gap-4 items-stretch sm:items-center"
           >
-            <button
+            <MagneticButton
               onClick={() =>
                 document
                   .getElementById("services")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
-              className="group flex items-center justify-center gap-3 px-6 sm:px-8 py-4 font-semibold text-sm tracking-widest uppercase transition-all duration-300 hover:scale-105"
+              className="group btn-glow flex items-center justify-center gap-3 px-6 sm:px-8 py-4 font-semibold text-sm tracking-widest uppercase transition-all duration-300 hover:scale-105"
               style={{
                 background: "var(--cyan)",
                 color: "#000",
@@ -213,8 +197,8 @@ export default function Hero() {
                 size={16}
                 className="group-hover:translate-x-1 transition-transform duration-200"
               />
-            </button>
-            <button
+            </MagneticButton>
+            <MagneticButton
               onClick={() =>
                 document
                   .getElementById("about")
@@ -239,7 +223,7 @@ export default function Hero() {
               }
             >
               Our Vision
-            </button>
+            </MagneticButton>
           </motion.div>
 
           {/* Stats row */}

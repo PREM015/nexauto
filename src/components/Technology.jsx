@@ -8,6 +8,8 @@ import {
   BarChart2,
   Layers,
 } from "lucide-react";
+import TiltCard from "./TiltCard";
+import SpotlightCard from "./SpotlightCard";
 
 function useCountUp(target, duration = 2000, trigger) {
   const [value, setValue] = useState(0);
@@ -197,56 +199,62 @@ export default function Technology() {
                 duration: 0.6,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="service-card group p-5 sm:p-7 cursor-pointer"
-              style={{
-                clipPath:
-                  "polygon(0 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%)",
-              }}
+              className="h-full"
             >
-              <div className="flex items-center justify-between mb-5 sm:mb-6">
-                <div
-                  className="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center border transition-all duration-300 group-hover:border-cyan-400"
+              <TiltCard className="h-full">
+                <SpotlightCard
+                  className="service-card group p-5 sm:p-7 cursor-pointer h-full"
                   style={{
-                    borderColor: "var(--border)",
-                    background: "var(--cyan-dim)",
+                    clipPath:
+                      "polygon(0 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%)",
                   }}
                 >
-                  <Icon size={18} style={{ color: "var(--cyan)" }} />
-                </div>
-                <div
-                  className="text-4xl sm:text-5xl font-display opacity-5 group-hover:opacity-10 transition-opacity duration-300"
-                  style={{
-                    fontFamily: "'Bebas Neue', cursive",
-                    color: "var(--cyan)",
-                    lineHeight: 1,
-                  }}
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </div>
-              </div>
-              <h3
-                className="font-semibold mb-3 tracking-wide"
-                style={{
-                  fontFamily: "'Rajdhani', sans-serif",
-                  fontSize: 17,
-                  color: "var(--text-primary)",
-                  letterSpacing: "0.06em",
-                }}
-              >
-                {title}
-              </h3>
-              <p
-                className="text-sm leading-6"
-                style={{ color: "var(--text-muted)" }}
-              >
-                {desc}
-              </p>
+                  <div className="flex items-center justify-between mb-5 sm:mb-6">
+                    <div
+                      className="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center border transition-all duration-300 group-hover:border-cyan-400"
+                      style={{
+                        borderColor: "var(--border)",
+                        background: "var(--cyan-dim)",
+                      }}
+                    >
+                      <Icon size={18} style={{ color: "var(--cyan)" }} />
+                    </div>
+                    <div
+                      className="text-4xl sm:text-5xl font-display opacity-5 group-hover:opacity-10 transition-opacity duration-300"
+                      style={{
+                        fontFamily: "'Bebas Neue', cursive",
+                        color: "var(--cyan)",
+                        lineHeight: 1,
+                      }}
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </div>
+                  </div>
+                  <h3
+                    className="font-semibold mb-3 tracking-wide"
+                    style={{
+                      fontFamily: "'Rajdhani', sans-serif",
+                      fontSize: 17,
+                      color: "var(--text-primary)",
+                      letterSpacing: "0.06em",
+                    }}
+                  >
+                    {title}
+                  </h3>
+                  <p
+                    className="text-sm leading-6"
+                    style={{ color: "var(--text-muted)" }}
+                  >
+                    {desc}
+                  </p>
 
-              {/* Bottom accent on hover */}
-              <div
-                className="absolute bottom-0 left-0 h-0.5 w-0 group-hover:w-full transition-all duration-500"
-                style={{ background: "var(--cyan)" }}
-              />
+                  {/* Bottom accent on hover */}
+                  <div
+                    className="absolute bottom-0 left-0 h-0.5 w-0 group-hover:w-full transition-all duration-500"
+                    style={{ background: "var(--cyan)" }}
+                  />
+                </SpotlightCard>
+              </TiltCard>
             </motion.div>
           ))}
         </div>
