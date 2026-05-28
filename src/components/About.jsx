@@ -74,7 +74,8 @@ export default function About() {
           style={{
             fontFamily: "'Bebas Neue', cursive",
             fontSize: "200px",
-            color: "rgba(0,229,255,0.03)",
+            color: "var(--text-primary)",
+            opacity: 0.04,
             letterSpacing: "-0.02em",
           }}
         />

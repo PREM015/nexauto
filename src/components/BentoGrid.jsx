@@ -11,8 +11,8 @@ export default function BentoGrid() {
             <div className="w-16 h-16 rounded-full mb-6 border flex items-center justify-center border-cyan-400 bg-cyan-400/10 text-cyan-400">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
             </div>
-            <h3 className="text-3xl font-display text-white mb-2" style={{ fontFamily: "'Bebas Neue', cursive" }}>Next-Gen Telematics</h3>
-            <p className="text-gray-400 max-w-md">Real-time data streaming from millions of edge devices, parsed and analyzed with sub-second latency.</p>
+            <h3 className="text-3xl font-display mb-2" style={{ fontFamily: "'Bebas Neue', cursive", color: "var(--text-primary)" }}>Next-Gen Telematics</h3>
+            <p className="max-w-md" style={{ color: "var(--text-muted)" }}>Real-time data streaming from millions of edge devices, parsed and analyzed with sub-second latency.</p>
           </SpotlightCard>
         </motion.div>
 
@@ -21,8 +21,8 @@ export default function BentoGrid() {
           <SpotlightCard className="h-full rounded-2xl border p-6 flex flex-col justify-between bg-[var(--bg-card)] border-[var(--border)]">
             <div className="text-5xl font-display text-cyan-400" style={{ fontFamily: "'Bebas Neue', cursive" }}>99.99%</div>
             <div>
-              <h4 className="text-lg text-white font-heading font-semibold" style={{ fontFamily: "'Rajdhani', sans-serif" }}>OTA Reliability</h4>
-              <p className="text-xs text-gray-500 mt-1">Failsafe delta updates.</p>
+              <h4 className="text-lg font-heading font-semibold" style={{ fontFamily: "'Rajdhani', sans-serif", color: "var(--text-primary)" }}>OTA Reliability</h4>
+              <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>Failsafe delta updates.</p>
             </div>
           </SpotlightCard>
         </motion.div>
@@ -34,8 +34,8 @@ export default function BentoGrid() {
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
             <div>
-              <h4 className="text-lg text-white font-heading font-semibold" style={{ fontFamily: "'Rajdhani', sans-serif" }}>ASIL-D Certified</h4>
-              <p className="text-xs text-gray-500 mt-1">Maximum automotive safety.</p>
+              <h4 className="text-lg font-heading font-semibold" style={{ fontFamily: "'Rajdhani', sans-serif", color: "var(--text-primary)" }}>ASIL-D Certified</h4>
+              <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>Maximum automotive safety.</p>
             </div>
           </SpotlightCard>
         </motion.div>
@@ -44,10 +44,10 @@ export default function BentoGrid() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }} className="md:col-span-3">
           <SpotlightCard className="h-full rounded-2xl border p-8 flex flex-col md:flex-row items-center justify-between bg-[var(--bg-card)] border-[var(--border)]">
             <div className="mb-6 md:mb-0">
-              <h3 className="text-3xl font-display text-white mb-2" style={{ fontFamily: "'Bebas Neue', cursive" }}>AI Vision Pipeline</h3>
-              <p className="text-gray-400 max-w-md">End-to-end perception stacks optimized for low-power SoCs. From camera to bounding box in 15ms.</p>
+              <h3 className="text-3xl font-display mb-2" style={{ fontFamily: "'Bebas Neue', cursive", color: "var(--text-primary)" }}>AI Vision Pipeline</h3>
+              <p className="max-w-md" style={{ color: "var(--text-muted)" }}>End-to-end perception stacks optimized for low-power SoCs. From camera to bounding box in 15ms.</p>
             </div>
-            <div className="relative w-full md:w-1/2 h-32 rounded-lg overflow-hidden border border-gray-800 bg-black/50">
+            <div className="relative w-full md:w-1/2 h-32 rounded-lg overflow-hidden border" style={{ borderColor: "var(--border)", background: "var(--bg-secondary)" }}>
                {/* Decorative scanner line */}
                <motion.div 
                  className="absolute inset-y-0 w-1 bg-cyan-400 shadow-[0_0_20px_#00E5FF]" 
